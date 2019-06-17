@@ -22,7 +22,8 @@ router.post('/auth',(req,res,next)=>{
     if(username && password){
         authModule.doAuth(username,password,(authstatus,item)=>{
             if(authstatus){
-                res.send("<h1>"+item.username+"</h1>");
+                //res.send("<h1>"+item.username+"</h1>");
+                res.render('loggedShop.ejs',{name:item});
             }
             else{
                 res.send("<h1>Invalid credential</h1>");

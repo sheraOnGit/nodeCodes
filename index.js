@@ -7,10 +7,13 @@ const adminRouter = require(path.join(__dirname,'/router/admin.js'));
 
 const app = express();
 
+app.set('views', path.join(__dirname, 'view'));
+app.set('view engine','ejs');
 app.use(bodyParser.urlencoded({extended : true}));
-app.use(bodyParser.json());
+
+// app.use(bodyParser.json());
 
 app.use(userRouter);
-app.use(adminRouter)
+app.use(adminRouter);
 
 app.listen(3000);
